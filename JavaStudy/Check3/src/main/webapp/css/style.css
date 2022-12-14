@@ -1,0 +1,29 @@
+@charset "UTF-8";
+.box {
+	width: 200px;
+	border: 1px solid black;
+}
+
+.header {
+	width: 500px;
+	background-color: gray;
+	display: inline-block;
+	padding: 10px;
+	color: white;
+}
+.time {
+	display: inline-block;
+	font-size: 10px;
+	color: black;
+}
+
+.main {
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+.footer {
+	width: 500px;
+	background-color: gray;
+	padding: 10px;
+	color: white;
+}
