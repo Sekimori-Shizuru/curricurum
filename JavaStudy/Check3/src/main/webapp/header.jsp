@@ -18,7 +18,7 @@
 				<%
 				Date date = new Date();
 				SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-				String formatDate = sdf.format(date);
+				String formatDate = sdf.frmat(date);
 				%>
 				<%=formatDate%>
 			</div>
