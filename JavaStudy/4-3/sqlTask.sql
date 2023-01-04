@@ -16,7 +16,7 @@
 -- ORDER BY store_name;
  
 -- 4. 商品テーブルから全商品の単価の平均値を抽出しなさい。
--- SELECT goods_name, AVG(price) FROM goods_table GROUP BY goods_name;
+-- SELECT goods_name, AVG(price) FROM goods_table;
  
  
 -- 5. 店舗コード='EA01'の在庫数の平均値より大きい在庫数を持つ店舗コードを抽出しなさい。
