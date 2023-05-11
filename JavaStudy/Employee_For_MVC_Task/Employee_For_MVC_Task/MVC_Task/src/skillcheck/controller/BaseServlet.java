@@ -31,7 +31,7 @@ public abstract class BaseServlet extends HttpServlet {
 
     // FIXME Step-3: 定数定義
     // FIXME Step-3-1: リクエスト判別用のボタンの属性名を記述しなさい。
-    protected static final String CONST_ELEMENT_NAME_REQUEST = "ここへ記述";
+    protected static final String CONST_ELEMENT_NAME_REQUEST = "requestType";
     protected static final String CONST_REQUST_KEY_FOR_SENDER = "sender";
     protected static final String CONST_REQUST_KEY_FOR_REDIRECT = "redirect";
     protected static final String CONST_REQUST_KEY_FOR_RESPONSE_BEAN = "responseBean";
@@ -39,7 +39,7 @@ public abstract class BaseServlet extends HttpServlet {
     /** ・リクエスト対象（リクエスト&レスポンスを渡す先）のjspファイル */
     protected static final String CONST_DESTINATION_LOGIN_JSP = "/MVC_Task/login.jsp";
     // FIXME Step-3-2: 実行結果表示用のjspファイルのパスを記述しなさい。
-    protected static final String CONST_DESTINATION_RESULT_JSP = "";
+    protected static final String CONST_DESTINATION_RESULT_JSP = "/WEB-INF/employeeResult.jsp";
 
     /* フィールド変数の定義 */
     /** フォーワード先 */
@@ -117,7 +117,7 @@ public abstract class BaseServlet extends HttpServlet {
      */
     protected void setRedirectInfo(final boolean isLogout, HttpSession session, HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-        // セション情報として登録
+        // セッション情報として登録
         session = request.getSession(true);
 
         // セッションタイムアウト時のみメッセージをセット
@@ -150,8 +150,9 @@ public abstract class BaseServlet extends HttpServlet {
             // Tips1: 社員情報管理サービスはインスタンスが生成済みのものを利用すること
             // Tips2: 完全一致検索の社員情報取得を呼び出すこと
             // Tips3: 第二引数の渡し方に注意すること
-            // ←ここへ記述
-
+//            ems = new EmployeeManagementService();
+        	
+            ems.getEmployeeData(ExecuteCase.FIND_ALL, resEmployeeBean);
             // 最初の1件を取得
             resEmployeeBean = responseBean.getEmplyeeBeanList().stream().findFirst().orElse(null);
 

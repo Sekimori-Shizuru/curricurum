@@ -19,7 +19,8 @@
 
 /* main right-center */
 .right-center{
-    float: right;
+    /* float: right; */
+    float: left;
     width: 250px;
     height: 250px;
    background-color: #8c2727;

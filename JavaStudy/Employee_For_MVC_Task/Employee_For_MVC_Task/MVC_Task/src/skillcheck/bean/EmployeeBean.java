@@ -23,7 +23,10 @@ public final class EmployeeBean {
     private String _comment;
     /** ・削除フラグ（0:未削除/1:削除） */
     private String _deleteFlg;
-
+    
+//    追加内容（フィールド変数）
+    private String _name;
+   
     /**
      * コンストラクタ: パラメーターなし
      */
@@ -150,5 +153,12 @@ public final class EmployeeBean {
     public String getDeleteFlg() {
         return _deleteFlg;
     }
-
+//    nameのセッター、ゲッターを追加
+    public void setName(String name) {
+		this._name = name;
+	}
+    
+    public String getName() {
+    	return _name;
+    }
 }
