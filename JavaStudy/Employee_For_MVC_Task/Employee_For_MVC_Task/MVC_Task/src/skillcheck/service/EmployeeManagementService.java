@@ -1,5 +1,6 @@
 package skillcheck.service;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -8,7 +9,13 @@ import java.util.List;
 import java.util.Objects;
 
 // FIXME Step-5-1: 「EmployeeBean, ResponseBean, ConstMessage, ConstSQL, EmployeeDao, SC5Exception, Logger」をインポートしなさい。
-// [ここへ記述]
+import skillcheck.bean.EmployeeBean;
+import skillcheck.bean.ResponseBean;
+import skillcheck.constant.ConstMessage;
+import skillcheck.constant.ConstSQL;
+import skillcheck.dao.EmployeeDao;
+import skillcheck.exception.MVCException;
+import skillcheck.logger.Logger;
 
 /**
  * 社員情報管理サービス
@@ -178,7 +185,17 @@ public final class EmployeeManagementService extends BaseService implements Empl
                 // FIXME Step-5-4: pEmployeeBeanListの「1件目の要素のみ」から社員情報を取得しなさい。
                 // Tips1: ループ文を使用すること（正解は複数パターンあります）
                 // Tips2: 格納先はローカル変数のempとすること
-                // [ここへ記述]
+            	while (resultSet.next()) {
+            		String empId = resultSet.getString("empId");
+            		String password = resultSet.getString("password");
+            		String name = resultSet.getString("empId");
+            		String mail = resultSet.getString("empId");
+            		String programingLanguage = resultSet.getString("empId");
+            		String comment = resultSet.getString("comment");
+            		emp = new EmployeeBean(empId,password, name, mail, programingLanguage, comment);
+            	}
+            		
+            	
 
                 if (Objects.nonNull(emp)) {
                     Logger.log(new Throwable(), "pEmployeeBeanList[0].empId = " + emp.getEmpId());
@@ -189,7 +206,8 @@ public final class EmployeeManagementService extends BaseService implements Empl
                     // 1. 上記で構築したSELECT文を引数にして、connectionよりプリペアードステートメントオブジェクトを作成
                     // 2. 1で作成したオブジェクトをpreparedStatementへ格納
                     // Tips: sbQueryは、sbQuery.toString()でStringへ変換
-                    // [ここへ記述]
+//                    " WHERE empId = ? AND deleteFlg = '0'"
+                    PreparedStatement pstmt = connection.prepareStatement(ConstSQL.SELECT_BY_EMPID);
 
                     // LIKEを使用するため、パラメータを編集
                     final String empId = ExecuteCase.FIND_BY_EMPID_WITH_LIKE.equals(eCase)
@@ -198,7 +216,7 @@ public final class EmployeeManagementService extends BaseService implements Empl
 
                     // FIXME Step-5-6: preparedStatementに適切なパラメーターをセットしなさい。
                     // Tips: パラメータをセットするインデックスに注意
-                    // [ここへ記述]
+                    preparedStatement.setString();
 
                     // FIXME Step-5-7: preparedStatementよりSQL(SELECT文)を実行し、resultSetへ結果を格納しなさい。
                     // [ここへ記述]
